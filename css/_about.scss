@@ -1,0 +1,61 @@
+.about__article {
+    @include buttonlight(1rem, 1rem);
+    padding: 2rem;
+    div{
+        display: grid;
+        grid-template-columns: 6fr 3fr;
+        gap: 2rem;
+        justify-items: center;
+        margin-top: 1rem;
+        img {
+            border-radius: 15px;
+            margin-bottom: 0.3rem;
+            border: 4px solid map-get($background-color, "white");
+            box-shadow:  10px 10px 20px #bebebe,
+                            -10px -10px 20px #fff;
+        }
+        figcaption {
+            opacity: 50%;
+        }
+    }
+    .about__div2 {
+        grid-template-columns: 3fr 6fr;
+    }
+}
+
+.about__hero {
+    @include buttondark(1rem, 1rem);
+    img {
+        filter:grayscale(1);
+        border-radius: 15px;
+    }
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+    gap: 2rem;
+    align-items: center;
+    div{
+        margin-left: 4rem;
+        text-align: right;
+    }
+}
+
+.about__div {
+    @include grid(2);
+    .about__article {
+        @include buttondark(1rem, 1rem);
+        p {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.error__box {
+    position: relative;
+    width: 934px;
+}
+
+.vid {
+    outline: none;
+    position: absolute;
+    left: -5000px;
+}

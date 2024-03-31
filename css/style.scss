@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+
+@mixin flexcenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin theme($dark-theme: true) {
+    @if $dark-theme {
+        background: darken($background-color, 100%);
+        color: lighten(map-get($text-color, "black"), 100%);
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+body {
+    background-color: map-get($background-color, "white");
+    /* color: map-get($text-color , black); */
+    color: textcolor("black");
+    font-family: "Quicksand", sans-serif;
+}
+
+.main {
+    margin: 0 auto;
+    @include flexcenter(column);
+    @include mobile {
+        flex-direction: row;
+    }
+
+    #{&}__p {
+        font-weight: lighter;
+
+        &:hover {
+            color: $text-hover;
+        }
+    }
+}
+
+.dark {
+    @include theme($dark-theme: true);
+}

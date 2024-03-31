@@ -1,0 +1,249 @@
+@import "reset", "loading", "about", "contact";
+@keyframes animateBorder {
+    0% {
+      background-position: 0%;
+    }
+	100% {
+		background-position: 400%;
+    }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: map-get($background-color , "white");
+    z-index: 10;
+    box-shadow: 0 1px 10px #484848;
+    padding: 1rem 0;
+    .header__nav{
+        .header__ul {
+            @include flex(center, space-around);
+            li:nth-child(2) {
+                margin-left: auto;
+            }
+            
+            li{
+                margin: 0.5em;
+            }
+        }
+    }
+}
+
+.hero {
+    margin: auto;
+    width: 100vw;
+    height: auto;
+}
+
+.herotext {
+    span {
+        @include gradient()
+    }
+}
+
+.main section {
+    margin-top: 3rem;
+}
+
+.main__section1 {
+    @include grid(4);
+    .section1__article {
+        @include buttonlight(15px, 1rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        img {
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 1rem;
+        } 
+
+        .section1__button {
+            @include buttonlight(999rem, 1em);
+            @include gradientbutton();
+        }
+    }
+}
+
+.main__section2 {
+    @include grid(3);
+    .section2__h3 {
+        grid-column: span 3;
+        margin-left: 1rem;
+    }
+
+    .section2__carousel {
+        grid-column: span 3;
+    
+        .section2__article {
+            $radius: 1rem;
+            @include buttonlight($radius, 1.5rem);
+            @include flex($flow: column);
+
+            img {
+                border-radius: $radius;
+                margin-bottom: 1.5rem;
+            }
+
+            .section2__div {
+                display: grid;
+                grid-template-rows: 3rem 6rem 5.5rem;
+                gap: 1rem;
+
+                .section2__ctn {
+                    @include buttonlight(999em, 1rem);
+                    @include gradientbutton();
+                }
+            }
+        }
+    }
+}
+
+.main__section3 {
+    @include grid(4);
+    .section3__h3 {grid-column: span 4;}
+    .section3__mainarticle {
+        grid-column: span 2;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+        justify-content: center;
+        @include buttondark(1rem, 1rem);
+        h6 {
+            @include buttonlightdark(1rem, 0);
+            color: map-get($text-color, "white");
+            margin-top: 1.5rem;
+            @include gradientbefore();
+
+            &:hover {
+                @include gradient;
+            }
+
+            &:active {
+                @include buttonlightdark(1rem, 0, $inset: true);
+                color: inherit;
+                margin-top: 1.5rem;
+            }
+        }
+
+        .nowrap {
+            @include gradient();
+        }
+    }
+
+    .section3__mainarticle2 {
+        @extend .section3__mainarticle;
+        align-items: flex-start;
+        h3 {
+            span {
+                @include buttondarklight(1rem, 0);
+                color: map-get($text-color, "black");
+            }
+        }
+    }
+    
+    .section3__carousel {
+        grid-column: span 2;
+        .section3__article {
+            @include buttonlight(15px, 2rem);
+            
+            img {
+                margin-bottom: 1rem;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .section3__text{
+                display: grid;
+                grid-template-rows: 3rem 1rem 1fr;
+            }
+            .section3__div {
+                @include flex($horizontal: space-around);
+
+                .section3__ctn {
+                    @include buttonlight(50%, 1rem);
+                    @include gradientbutton($radius: 50%);
+                }
+            }
+        }
+    }
+}
+
+.main__section4 {
+    @include grid(4);
+
+    .section4__h3 {
+        grid-column: span 4;
+    }
+    .section4__article{
+        @include buttonlight(15px, 1rem);
+        img {
+            margin: 0 0 1rem 0;
+            padding: 0;
+            border-radius: 15px 15px 0 0;   
+        }
+        .section4__div {
+            display: grid;
+            justify-items: center;
+            align-content: start;
+            grid-template-rows: 0.1fr 1.5fr 1fr;
+            gap: 0.5rem;
+            
+            .section4__ctn {
+                @include buttonlight(999em, 1rem);
+                @include gradientbutton()
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: map-get($background-color , "black" );
+    color: map-get($text-color , "white" );
+    margin-top: 3rem;
+    padding: 2rem 0;
+
+    .container {
+        @include grid(4)
+    }
+
+    .footer__section {
+        display: flex;
+        flex-direction: column;
+
+        h3, p {
+            margin-bottom: 0.5em;
+        }
+
+        .footer__div {
+            @include flex($flow: row);
+
+            p {
+                margin: 0.5em 2em 1em 0;
+            }
+        }
+    }
+
+
+    fieldset {
+        border: none;
+        margin: 1em 0;
+        
+        .form__p{
+            display: flex;
+            input {
+                border-radius: 0.4em 0 0 0.4em;
+                padding: 0.5em;
+                border: none;
+                outline: none;
+            }
+            
+            .email__button {
+                @extend input;
+                border-radius: 0 0.4em 0.4em 0;
+                background: linear-gradient(135deg, $gradient1, $gradient2, $gradient1);
+                background-size: 400%;
+                color: map-get($text-color , "white");
+            }
+        }
+    }
+}

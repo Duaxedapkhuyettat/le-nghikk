@@ -1,0 +1,38 @@
+.location {
+    @include grid(2);
+    .location__article {
+        @include buttonlight(1rem, 1rem);
+        iframe {
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+
+.form__contact {
+    display:flex;
+    flex-direction: column;
+    align-content: space-between;
+    fieldset {
+        border: none;
+    }
+    input, textarea {
+        border-radius: 1rem;
+        padding: 1em;
+        border: 2px solid map-get($background-color, "white");
+        box-shadow:  10px 10px 20px #bebebe,
+                        -10px -10px 20px #fff;
+        outline: none;
+        margin: 1rem;
+        width: 100%;
+    }
+    .contact__div {
+        @include grid(3)
+    }
+
+    .contact__button {
+        @include buttonlight(999rem, 1em);
+        @include gradientbutton();
+    }
+}
